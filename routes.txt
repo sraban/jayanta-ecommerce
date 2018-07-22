@@ -1,0 +1,25 @@
++--------+----------+------------------------------+------------------------+------------------------------------------------------------------------+-----------------+
+| Domain | Method   | URI                          | Name                   | Action                                                                 | Middleware      |
++--------+----------+------------------------------+------------------------+------------------------------------------------------------------------+-----------------+
+|        | GET|HEAD | /                            |                        | Closure                                                                | web             |
+|        | GET|HEAD | admin                        | admin.dashboard        | App\Http\Controllers\AdminController@index                             | web,auth:admin  |
+|        | POST     | admin/login                  | admin.login.submit     | App\Http\Controllers\Auth\AdminLoginController@login                   | web,guest:admin |
+|        | GET|HEAD | admin/login                  | admin.login            | App\Http\Controllers\Auth\AdminLoginController@showLoginForm           | web,guest:admin |
+|        | GET|HEAD | admin/logout                 | admin.logout           | App\Http\Controllers\Auth\AdminLoginController@logout                  | web             |
+|        | POST     | admin/password/reset         | admin.password.request | App\Http\Controllers\Auth\ForgotPasswordController@reset               | web,guest       |
+|        | GET|HEAD | admin/password/reset         | admin.password.request | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest       |
+|        | GET|HEAD | admin/password/reset/{token} | admin.password.reset   | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest       |
+|        | POST     | admin/register               | admin.register         | App\Http\Controllers\Auth\RegisterController@register                  | web,guest       |
+|        | GET|HEAD | admin/register               | admin.register         | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest       |
+|        | GET|HEAD | api/user                     |                        | Closure                                                                | api,auth:api    |
+|        | GET|HEAD | home                         | home                   | App\Http\Controllers\HomeController@index                              | web,auth        |
+|        | POST     | login                        |                        | App\Http\Controllers\Auth\LoginController@login                        | web,guest       |
+|        | GET|HEAD | login                        | login                  | App\Http\Controllers\Auth\LoginController@showLoginForm                | web,guest       |
+|        | POST     | logout                       | logout                 | App\Http\Controllers\Auth\LoginController@logout                       | web             |
+|        | POST     | password/email               | password.email         | App\Http\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail  | web,guest       |
+|        | GET|HEAD | password/reset               | password.request       | App\Http\Controllers\Auth\ForgotPasswordController@showLinkRequestForm | web,guest       |
+|        | POST     | password/reset               |                        | App\Http\Controllers\Auth\ResetPasswordController@reset                | web,guest       |
+|        | GET|HEAD | password/reset/{token}       | password.reset         | App\Http\Controllers\Auth\ResetPasswordController@showResetForm        | web,guest       |
+|        | POST     | register                     |                        | App\Http\Controllers\Auth\RegisterController@register                  | web,guest       |
+|        | GET|HEAD | register                     | register               | App\Http\Controllers\Auth\RegisterController@showRegistrationForm      | web,guest       |
++--------+----------+------------------------------+------------------------+------------------------------------------------------------------------+-----------------+
